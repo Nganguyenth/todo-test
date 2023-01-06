@@ -33,6 +33,22 @@ const Todo = (): JSX.Element => {
       inputRef.current.value = '';
     }
   }
+  function handleEnter(e: React.KeyboardEvent ): void {
+      if (e.key === 'Enter') {
+        if (task.name !== '') {
+          dispatch(actions.addJob(task.name));
+        } else {
+          alert('Please enter Task');
+        }
+        dispatch(actions.setJob(''));
+        if (inputRef.current !== null) {
+          inputRef.current.focus();
+          inputRef.current.value = '';
+        }
+        console.log('12345');
+      }
+    ;
+  }
   window.localStorage.setItem('task', JSON.stringify(state));
   return (
     <>
@@ -55,7 +71,8 @@ const Todo = (): JSX.Element => {
               type="text"
               placeholder="Enter task"
               ref={inputRef}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
+              onKeyDown ={handleEnter}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>): void => { 
                 dispatch(actions.setJob(e.target.value));
               }}
             />
@@ -69,19 +86,20 @@ const Todo = (): JSX.Element => {
                 className={`todo-list-item ${task.complete ? 'active' : ''}`}
                 key={index}
               >
-                <div className="checkbox-wrap">
-                  <div className="checkbox-rect">
-                    <input
-                      type="checkbox"
-                      id={index.toString()}
-                      name="check"
-                      onChange={() => dispatch(actions.complete(index))}
-                      checked={task.complete}
-                    />
-                    <label className="task-name" htmlFor={index.toString()}>
-                      {task.name.trim()}
-                    </label>
-                  </div>
+                <div
+                  className="checkbox-rect"
+                  onClick={() => dispatch(actions.complete(index))}
+                >
+                  <input
+                    type="checkbox"
+                    id={index.toString()}
+                    name="check"
+                    onChange={() => dispatch(actions.complete(index))}
+                    checked={task.complete}
+                  />
+                  <label className="task-name" htmlFor={index.toString()}>
+                    {task.name.trim()}
+                  </label>
                 </div>
                 <div
                   className="task-delete"

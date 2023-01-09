@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from 'react';
+import React, { useRef } from 'react';
 import { faTrash, faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useStore, actions } from '../store';
@@ -45,7 +45,6 @@ const Todo = (): JSX.Element => {
           inputRef.current.focus();
           inputRef.current.value = '';
         }
-        console.log('12345');
       }
     ;
   }
@@ -76,7 +75,7 @@ const Todo = (): JSX.Element => {
                 dispatch(actions.setJob(e.target.value));
               }}
             />
-            <div className="task-add" onClick={handleSubmit}>
+            <div className="task-add btn" onClick={handleSubmit}>
               <FontAwesomeIcon className="task-add-icon" icon={faAdd} />
             </div>
           </div>

@@ -28,3 +28,4 @@ export const complete = (payload: number): TaskAction => {
   export const removeAll = (): TaskAction => {
     return { type: REMOVE_ALL };
   }
+  

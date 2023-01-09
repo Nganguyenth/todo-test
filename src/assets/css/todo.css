@@ -92,11 +92,12 @@ input::placeholder {
 }
 .task-add {
   color: #fff;
-  background-color: #7476a8;
+  background-color: #474863;
   padding: 28px 30px;
   border-radius: 50%;
   margin-left: 20px;
   cursor: pointer;
+  border: 5px solid #474863;
 }
 .task-add-icon {
   font-size: 2.5rem;
@@ -107,7 +108,7 @@ input::placeholder {
   font-weight: 600;
   padding-right: 32px;
   cursor: pointer;
-  color: #7476a8;
+  color: #474863;
 }
 .todo-list-item {
   display: flex;

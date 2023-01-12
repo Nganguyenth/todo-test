@@ -1,5 +1,5 @@
 import { createContext} from 'react'
-import { TaskState } from '../Todo/'
+import { TaskState } from '../todo/'
 type CT = {
     state: TaskState[]
     dispatch: () => void

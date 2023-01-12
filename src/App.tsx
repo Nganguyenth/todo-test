@@ -1,4 +1,4 @@
-import Todo from './features/Todo'
+import Todo from './features/todo'
 
 function App (): JSX.Element {
   return (
